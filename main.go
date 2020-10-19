@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
+	// "net/http"
 
-	"github.com/JoDMsoluth/webGo/restful"
+	"github.com/JoDMsoluth/webGo/eventSource"
 )
 
 func main() {
@@ -14,5 +14,20 @@ func main() {
 	// http.ListenAndServe(":3000", fileupload.FileUpload())
 
 	// 3. Restful
-	http.ListenAndServe(":3000", restful.RestfulHandler())
+	// http.ListenAndServe(":3000", restful.RestfulHandler())
+
+	// 4. Decorator
+	// decorator.Decorator()
+
+	// 5. DecoratorHandler
+	// http.ListenAndServe(":3000", decoratorHandler.DecoratorHandler())
+	
+	// 6. Template
+	// template.Template()
+	
+	// 7. 유용한 패키지 render(각종 res를 을 편리하게 적용), pat(라우터 추가), negroni(http 각종 미들웨어서버 제공)
+	// utilPackage.UtilPackage()
+
+	// 8. EventSource를 이용한 채팅
+	eventSource.EventSource()
 }
