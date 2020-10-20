@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	decoHandler "github.com/JoDMsoluth/webGo/decoratorHandler/handler"
+	"github.com/JoDMsoluth/webGo/decoratorHandler/handler"
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
