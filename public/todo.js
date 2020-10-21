@@ -53,8 +53,8 @@ $(function() {
             url: "todos/" + id,
             type: "DELETE",
             success: function (data) {
-                console.log(data)
-                if (data.Success) {
+                console.log("data.success", data.success)
+                if (data.success) {
                     $self.parent().remove();     
                 }
             }

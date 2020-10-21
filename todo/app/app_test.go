@@ -1,6 +1,7 @@
 package app
 // go-sqlite3를 사용하기 위해서는 -> g c go 필요 -> c를 표준 컴파일 위해서 gcc 필요 -> ms window에서는 c 표준 컴파일 지원 x -> tdm-gcc 설치해야함
 import (
+	"os"
 	"github.com/JoDMsoluth/webGo/todo/model"
 	"fmt"
 	"strconv"
@@ -13,8 +14,18 @@ import (
 )
 
 func TestTodos (t *testing.T) {
+	// Mock Up Function
+	getSessionID = func (r *http.Request) string {
+		return "testsessionId"
+	}
+	// 테스트 전에 db 파일 지움
+	os.Remove("./test.db")
 	assert := assert.New(t)
-	ts := httptest.NewServer(MakeNewHandler())
+
+	ah := MakeNewHandler("./test.db")
+	defer ah.Close()
+
+	ts := httptest.NewServer(ah)
 	defer ts.Close()
 
 	// FormValue로 받기 때문에 PostForm
